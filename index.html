@@ -9,17 +9,16 @@
 <body>
 
 
+    <nav class="blackbar"></nav>
   <header class="profile-header">
     <div class="profile">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/60401202?s=400&u=61da6cb2e903f5b841f1e3caec7d7f23fded70d4&v=4" alt="Profile Picture" />
       <a href="https://github.com/tenmakenzou" target="_blank" rel="noopener noreferrer">
-        <img class="github-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/60401202?s=400&u=61da6cb2e903f5b841f1e3caec7d7f23fded70d4&v=4" alt="Profile Picture" />
       </a>
     </div>
 
     <nav class="navbar">
       <ul>
-        <li><a href="#hero">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -40,23 +39,40 @@
     <section id="projects">
       <h2>Projects</h2>
 
-      <div class="project">
-        <h3>
-          <a href="https://github.com/tenmakenzou/Vulturis" target="_blank" rel="noopener noreferrer">
-            Vulturis
-          </a>
-        </h3>
-        <p>A full working bookstore project that has Docker and a great UI.</p>
-      </div>
+     <div id="projects-container"></div>
 
-      <div class="project">
-        <h3>
-          <a href="https://github.com/tenmakenzou/androidlabcontrol" target="_blank" rel="noopener noreferrer">
-            Android PC Control
-          </a>
-        </h3>
-        <p>An Android application that manages PCs using a TCP connection in Java.</p>
-      </div>
+<script>///pretty much projects will add more as the time progresses
+  const projects = [
+    {
+      name: "Vulturis",
+      url: "https://github.com/tenmakenzou/Vulturis",
+      description: "A fully working bookstore project with Docker and a clean UI."
+    },
+    {
+      name: "Android PC Control",
+      url: "https://github.com/tenmakenzou/androidlabcontrol",
+      description: "An Android app that manages PCs over TCP using Java."
+    },
+    {
+      name: "Bookbot",
+      url: "https://github.com/tenmakenzou/bookbot",
+      description: "A Python bot that counts words and their frequency in a .txt book file."
+    }
+  ];
+
+  const container = document.getElementById("projects-container");
+
+  container.innerHTML = projects.map(project => `
+    <div class="project">
+      <h3>
+        <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+          ${project.name}
+        </a>
+      </h3>
+      <p>${project.description}</p>
+    </div>
+  `).join('');
+</script>
     </section>
 
     <section id="contact">
